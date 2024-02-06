@@ -8,6 +8,7 @@ RequestAnimationFrame: https://developer.mozilla.org/en-US/docs/Web/API/window/r
 
 */
 import * as THREE from "three";
+import { EXRLoader } from 'three/addons/loaders/EXRLoader.js';
 
 // create a scene in which all other objects will exist
 let scene = new THREE.Scene();
@@ -81,11 +82,24 @@ function addLighting() {
 addLighting();
 
 function addBackground() {
-  let bg = new THREE.TextureLoader().load('./hayloft.png');
+  //let bg = new THREE.TextureLoader().load('./hayloft.png');
   // bg.wrapS = THREE.RepeatWrapping;
   // bg.wrapT = THREE.RepeatWrapping;
   //bg.repeat.set = (20,10);
-  scene.background = bg;
+  //scene.background = bg;
+
+  new EXRLoader().load( 'hayloft_4k.exr', function ( texture ) {
+
+    // texture.mapping = THREE.EquirectangularReflectionMapping;
+
+    // exrCubeRenderTarget = pmremGenerator.fromEquirectangular( texture );
+    // exrBackground = texture;
+
+    console.log(texture);
+    scene.background = texture;
+
+  } );
+
 }
 addBackground();
 
