@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+  <style>
+    #blueBorderDiv {
+      border: 2px solid blue;
+      padding: 10px;
+      margin: 10px;
+      font: 1em sans-serif;
+    }
+  </style>
+    
+  </head>
+
+
+  <body>
+    <script
+      async
+      src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"
+    ></script>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <div id="blueBorderDiv">Text</div>
+
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
